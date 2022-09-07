@@ -12,8 +12,8 @@ const infoController = async(req, res) => {
       processId: process.pid,
       capetaProyecto: process.cwd(),
       cantCpus: os.cpus().length
-      }
-
+    }
+    // console.log("Info del servidor:", info)
     res.render('plantillaInfo.ejs', { info })
 }
 
