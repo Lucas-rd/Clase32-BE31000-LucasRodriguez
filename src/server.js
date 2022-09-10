@@ -30,7 +30,6 @@ const args = yargsOptions.alias({
   p: "port",
   m: "mode"
 }).default({
-  port: 8080,
   mode: "fork"
 }).argv
 
@@ -38,7 +37,7 @@ console.log("Modo de inicio de servidor:", args.m)
 console.log("PUERTO por ARGS",args.p)
 
 const app = express()
-const PORT = args.port
+const PORT = process.env.PORT || args.port
 const isCluster= args.m == 'cluster'
 
 if(isCluster && cluster.isPrimary) {
