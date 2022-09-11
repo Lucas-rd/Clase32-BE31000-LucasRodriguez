@@ -54,7 +54,7 @@ if(isCluster && cluster.isPrimary) {
   await mongoose.connect(enviroment.STRING_CONNECTION_MONGO).then(console.log("Conectado a la base Mongo"))
   
   //app escuchando en puerto PORT
-  const expressServer = app.listen(PORT, () => console.log(`Servidor escuchando en el puerto ${PORT}`))
+  const expressServer = app.listen(process.env.PORT || 8080, () => console.log(`Servidor escuchando en el puerto ${process.env.PORT || 3000}`))
   
   //inicializacion de server io
   const io = new Server(expressServer)
